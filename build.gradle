@@ -48,8 +48,19 @@ repositories {
 }
 
 dependencies {
-	compile "org.springframework.boot:spring-boot-starter-web"
-	compile "org.springframework.boot:spring-boot-starter-data-jpa"
+
+    //To use log4
+    compile("org.springframework.boot:spring-boot-starter-web"){
+        exclude  module: "spring-boot-starter-logging" //remove the LogBack
+    }
+    //its part spring-boot-starter-web
+
+
+    //end log4j configuration
+    compile ("org.springframework.boot:spring-boot-starter-data-jpa"){
+        exclude  module: "spring-boot-starter-logging" //remove LogBack
+    }
+    compile("org.springframework.boot:spring-boot-starter-log4j") //finally log4j lib
     compile "mysql:mysql-connector-java:5.1.38"
 
 	testCompile("org.springframework.boot:spring-boot-starter-test")
