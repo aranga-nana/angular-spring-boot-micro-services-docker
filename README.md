@@ -35,9 +35,9 @@ gradle:
 - place banner.txt in classes (place in resource folder will do same!!)
 - can use any environment variable /property variable inside the text file too !!!.
 
-##Turn of Jpa Auto Configuration
-I would like to use my own configuration class to initlise Hibernate. i.e JPAConfig.java.
-In order to disable auto config i have to add these two classes to exclude in EnableAutoConfiguration.
+##Turn off JPA Auto Configuration
+I would like to use my own configuration class to initialise Hibernate. i.e JPAConfig.java.
+In order to disable auto config, I have to add these two classes to exclude in EnableAutoConfiguration.
 ```
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
