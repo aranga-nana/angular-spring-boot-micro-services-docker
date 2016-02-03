@@ -20,7 +20,7 @@ import javax.persistence.*;
 
         )
 })
-@Table(name="tbluser")
+@Table(name="user")
 public class User
 {
     private long id;
