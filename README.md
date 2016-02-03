@@ -18,6 +18,7 @@ Spring boot use LogBack (self4j implementation) as logging framework which is fa
 In case if you want to use log4j I include log4 configuration and necessary changes to build script
 ######NOTE:
 Have to remove Logger from all the spring boot module as it is dependency for most 'spring-boot-starter-*' modules
+<br>
 gradle:
 ```
     compile("org.springframework.boot:spring-boot-starter-web"){
