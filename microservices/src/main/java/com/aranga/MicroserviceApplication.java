@@ -15,7 +15,7 @@ import java.io.File;
  * Created by nanara0 on 3/02/2016.
  */
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class}) // DataSourceTransactionManagerAutoConfiguration.class
 public class MicroserviceApplication implements ApplicationRunner
 {
     @Override
