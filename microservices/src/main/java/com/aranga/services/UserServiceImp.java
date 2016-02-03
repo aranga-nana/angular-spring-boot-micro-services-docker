@@ -6,6 +6,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by nanara0 on 5/01/2015.
  */
@@ -35,6 +37,19 @@ public class UserServiceImp implements UserService
         try
         {
             return rep.selectByLogin(login);
+        }catch (Throwable e)
+        {
+            LOG.error(e);
+        }
+        return null;
+
+    }
+    @Override
+    public List<User> getAll()
+    {
+        try
+        {
+            return rep.selectAll();
         }catch (Throwable e)
         {
             LOG.error(e);

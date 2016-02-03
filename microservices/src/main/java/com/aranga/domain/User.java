@@ -8,14 +8,18 @@ import javax.persistence.*;
  * Created by nanara0 on 10/12/2014.
  */
 @Entity
-@NamedQueries(
-@NamedQuery(
-        name = "User.selectByLogin",
-        query = "select u from  User u where u.login =:login"
+@NamedQueries({
+        @NamedQuery(
+                name = "User.selectByLogin",
+                query = "select u from  User u where u.login =:login"
 
-)
-)
-@Immutable
+        ),
+        @NamedQuery(
+                name = "User.selectAll",
+                query = "select u from  User u"
+
+        )
+})
 @Table(name="tbluser")
 public class User
 {
