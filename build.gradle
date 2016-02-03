@@ -62,7 +62,7 @@ dependencies {
     }
     compile("org.springframework.boot:spring-boot-starter-log4j") //finally log4j lib
     compile "mysql:mysql-connector-java:5.1.38"
-    compile(files("libraries/sqljdbc4.jar"))
+    //compile(files("libraries/sqljdbc4.jar")) sql server lib have to be downloaded
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
