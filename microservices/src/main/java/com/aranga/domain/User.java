@@ -23,7 +23,7 @@ public class User
     private String login;
     private String firstName;
     private String lastName;
-    private long privilege;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,17 +61,4 @@ public class User
         this.lastName = lastName;
     }
 
-    @Column(
-            name = "privilege",
-            nullable = false
-    )
-    public long getPrivilege()
-    {
-        return privilege;
-    }
-
-    public void setPrivilege(long privilege)
-    {
-        this.privilege = privilege;
-    }
 }
