@@ -31,14 +31,7 @@ public class MicroserviceApplication implements ApplicationRunner
             final File f=new File(p);
             System.setProperty("log_dir",f.getPath()+"/spring-boot/logs");
         }
-        System.out.println("Log location:"+System.getProperty("log_dir"));
+
         SpringApplication.run(MicroserviceApplication.class, args);
-    }
-    public static void loadHomerDir() throws Exception
-    {
-        System.setProperty("home_dir",new File(".").getAbsolutePath());
-
-        System.out.println(new File(".").getAbsolutePath());
-
     }
 }
