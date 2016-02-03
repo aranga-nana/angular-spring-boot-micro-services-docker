@@ -13,12 +13,13 @@ In coming months will work on each topic and let you guys know. if you are inter
 always looking forward for your suggestions and comment. 
 
 
-###LOGGING
+###Loggers
 Spring boot use LogBack (self4j implementation) as logging framework which is far superior than log4j
 In case if you want to use log4j I include log4 configuration and necessary changes to build script
 #########NOTE:
 Have to remove Logger from all the spring boot module as it is dependency for most 'spring-boot-starter-*' modules
 
-###CUSTOMISING BANNER
+###Customising Banner
+
 - place banner.txt in classes (place in resource folder will do same!!)
 - can use any environment variable /property variable inside the text file too !!!.
