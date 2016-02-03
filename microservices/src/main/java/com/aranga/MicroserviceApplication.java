@@ -29,7 +29,7 @@ public class MicroserviceApplication implements ApplicationRunner
 
             final String p =System.getProperty("java.io.tmpdir");
             final File f=new File(p);
-            System.setProperty("log_dir",f.getPath()+"/spring-boot/logs");
+            System.setProperty("log_dir",f.getPath()+File.separator+"spring-boot"+File.separator+"logs");
         }
 
         SpringApplication.run(MicroserviceApplication.class, args);

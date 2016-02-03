@@ -19,8 +19,10 @@ by Aranga C. Nanayakkara
 ::SPRING BOOT ::        ${spring-boot.formatted-version}
 ::START UP OPTION::
 
--DATABASE DRIVER    :${db.driver}
+-DATABASE DRIVER    :${hibernate.sql.driver}
+-DIALECT            :${hibernate.dialect}
 -DATABASE URL       :${db.url}
+
 -LOG PATH           :${log_dir}
 -TEMP FOLDER        :${java.io.tmpdir}
 
