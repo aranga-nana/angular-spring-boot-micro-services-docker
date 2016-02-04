@@ -61,8 +61,10 @@ dependencies {
         exclude  module: "spring-boot-starter-logging" //remove LogBack
     }
     compile("org.springframework.boot:spring-boot-starter-log4j") //finally log4j lib
-    compile "mysql:mysql-connector-java:5.1.38"
-    //compile(files("libraries/sqljdbc4.jar")) sql server lib have to be downloaded
+    compile("mysql:mysql-connector-java:5.1.38")
+    //uncomment following line to use ms sql jdbc
+    //refer to the read me note
+    //compile("com.microsoft.sql:sqljdbc:4.0.0")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
