@@ -50,3 +50,28 @@ public class MicroserviceApplication implements ApplicationRunner
 }
 
 ```
+######NOTE:
+In case you want to connect to ms sql server,I recommend using sql jdbc driver from the Microsoft.
+Unfortunately it not available in maven repository.You have to manually add it to your local maven repository.
+if you want to use sqljdbc4.jar. here's the maven command to add it to local.
+please make sure -Dfile is correct path to the jar
+```
+mvn install:install-file -Dfile=sqljdbc4.jar -DgroupId=com.microsoft.sql
+-DartifactId=sqljdbc -Dversion=4.0.0 -Dpackaging=jar
+
+```
+then add to your gradle build file
+
+```
+repositories {
+
+	mavenLocal()
+	mavenCentral()
+
+}
+
+dependencies{
+ ...
+ ...
+ compile("com.microsoft.sql:sqljdbc:4.0.0")
+}
