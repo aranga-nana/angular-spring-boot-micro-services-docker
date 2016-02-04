@@ -1,7 +1,5 @@
 package com.aranga.domain;
 
-import org.hibernate.annotations.Immutable;
-
 import javax.persistence.*;
 
 /**
