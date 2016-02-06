@@ -10,6 +10,7 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("se.transmode.gradle:gradle-docker:1.2")
 	}
 }
 
@@ -70,4 +71,9 @@ dependencies {
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.6'
+}
+docker {
+	maintainer = 'Aranga Nanayakkara<aranga.'
+	baseImage = 'aranga/docker-boot:1.0'
+
 }
