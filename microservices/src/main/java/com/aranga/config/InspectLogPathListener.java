@@ -15,13 +15,26 @@ public class InspectLogPathListener implements ApplicationListener<ApplicationSt
     {
 
 
-
+        System.setProperty("SQL_LOG_LEVEL","INFO");
+        System.setProperty("SPRING_LOG_LEVEL","INFO");
+        System.setProperty("ORM_LOG_LEVEL","INFO");
         if (System.getenv("log_dir") == null &&
             System.getProperty("log_dir") == null)
         {
             System.setProperty("log_dir",System.getProperty("java.io.tmpdir"));
         }
 
-
+        if (System.getenv("SQL_LOG_LEVEL")!= null)
+        {
+            System.setProperty("SQL_LOG_LEVEL",System.getenv("SQL_LOG_LEVEL"));
+        }
+        if (System.getenv("SPRING_LOG_LEVEL")!= null)
+        {
+            System.setProperty("SPRING_LOG_LEVEL",System.getenv("SPRING_LOG_LEVEL"));
+        }
+        if (System.getenv("ORM_LOG_LEVEL")!= null)
+        {
+            System.setProperty("ORM_LOG_LEVEL",System.getenv("ORM_LOG_LEVEL"));
+        }
     }
 }
