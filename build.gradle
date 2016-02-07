@@ -75,7 +75,7 @@ task wrapper(type: Wrapper) {
 	gradleVersion = '2.6'
 }
 docker {
-	maintainer = 'Aranga Nanayakkara<aranga.'
-	baseImage = 'aranga/spring-boot:1.0'
-
+	maintainer = 'Aranga Nanayakkara<aranga@gmail.com>'
+	applicationName = 'spring-boot'
+	tagVersion = '1'
 }
