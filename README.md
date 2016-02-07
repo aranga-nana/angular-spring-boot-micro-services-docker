@@ -56,8 +56,13 @@ NOTE: need to have docker running and executing user has to be root or part of t
 ```
 ./gradlew -DTAG=1.0 buildDocker
 ```
+run container with tty map to host
 ```
 docker run -p 8080:80 aranga/spring-boot:1.0 -it
+```
+run in detach mode
+```
+docker run -p 8080:80 -d aranga/spring-boot:1.0
 ```
 
 http://docker-host:8080/greeting/
