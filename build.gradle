@@ -18,7 +18,7 @@ apply plugin: 'java'
 apply plugin: 'spring-boot'
 apply plugin: 'application'
 apply plugin: 'docker'
-
+group = 'aranga'
 sourceSets{
 	main{
 		java{
