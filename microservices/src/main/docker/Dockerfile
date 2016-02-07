@@ -1,6 +1,8 @@
 FROM java:8
 VOLUME /tmp
-VOLUME /var/spring-boot
+VOLUME /var/log/spring-boot
+VOLUME /data
 ADD  app-0.0.0.jar app.jar
 RUN bash -c 'touch /app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom -Dlog_dir=/var/spring-boot/logs -Dlog_dir=/var/spring-boot/data","-jar","/app.jar"]
+EXPOSE 80
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dlog_dir=/var/log/spring-boot/","-Dhome.dir=/data","-Dserver.port=80","-jar","/app.jar"]
