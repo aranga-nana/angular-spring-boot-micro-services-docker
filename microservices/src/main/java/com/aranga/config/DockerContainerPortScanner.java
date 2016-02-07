@@ -27,7 +27,7 @@ public class DockerContainerPortScanner implements ApplicationListener<Applicati
     {
         LOG.info("DockerContainerPortScanner() loaded!!");
         LOG.info("HELLO!!");
-        LOG.info(env.getProperty("DB_SERVER_PREFIX"));
+        LOG.info(env.getProperty("DB_PREFIX"));
         for(String s :event.getEnvironment().getSystemEnvironment().keySet())
         {
             LOG.info(s);
