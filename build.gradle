@@ -19,7 +19,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'application'
 apply plugin: 'docker'
 group = 'aranga' //need to change to your docker account or group
-def tagv = "1.0.0"
+
 
 
 sourceSets{
@@ -40,14 +40,14 @@ sourceSets{
 		}
 	}	
 }
+
 jar {
+	def jarTagName=  java.lang.System.getProperty("TAG");
+	if (jarTagName == null)
+		jarTagName ="1.0.0"
 	baseName = 'spring-boot'
-	version =  ${tagv}
-	doFirst{
-		tagv = java.lang.System.getProperty("TAG");
-		if (tagv == null)
-			tagv ="1.0.0"
-	}
+	version =  jarTagName
+
 }
 
 
@@ -88,7 +88,7 @@ task buildDocker(type: Docker, dependsOn: build) {
 	tagVersion = 1
 	dockerfile = file('microservices/src/main/docker/Dockerfile')
 	doFirst {
-		ant.project.properties['env.APP_JAR_NAME'] = jar.baseName+'-1.0.0.jar'
+
 		copy {
 			from jar
 			into stageDir
