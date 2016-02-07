@@ -1,6 +1,8 @@
 package com.aranga.welcome;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,10 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController
 {
     private static final Logger LOG = Logger.getLogger(GreetingController.class);
+
+    @Autowired
+    private Environment env;
     @RequestMapping("/greeting")
-    public String greeting()
+    public Message greeting()
     {
         LOG.info("request completed!!");
-        return "Hello,I'm spring boot RestController !!";
+        return new Message(env);
     }
 }
