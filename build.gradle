@@ -82,11 +82,12 @@ dependencies {
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.6'
 }
-task buildDocker(type: Docker, dependsOn: build) {
+task buildDocker(type: Docker, dependsOn: clean,build) {
 	push = true
 	applicationName = jar.baseName
 	tagVersion = jarTagName
 	dockerfile = file('microservices/src/main/docker/Dockerfile')
+	arg =
 	doFirst {
 
 		copy {
@@ -94,4 +95,6 @@ task buildDocker(type: Docker, dependsOn: build) {
 			into stageDir
 		}
 	}
+
 }
+compileJava.dependsOn clean
