@@ -19,7 +19,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'application'
 apply plugin: 'docker'
 group = 'aranga' //need to change to your docker account or group
-
+def tagv = "1.0.0"
 
 
 sourceSets{
