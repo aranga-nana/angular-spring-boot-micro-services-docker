@@ -80,6 +80,7 @@ task buildDocker(type: Docker, dependsOn: build) {
 	tagVersion = 1
 	dockerfile = file('microservices/src/main/docker/Dockerfile')
 	doFirst {
+		ant.project.properties['env.APP_JAR_NAME'] = jar.baseName+'-1.0.0.jar'
 		copy {
 			from jar
 			into stageDir
