@@ -78,7 +78,7 @@ task buildDocker(type: Docker, dependsOn: build) {
 	push = true
 	applicationName = jar.baseName
 	tagVersion = 1
-	dockerfile = file('src/main/docker/Dockerfile')
+	dockerfile = file('microservices/src/main/docker/Dockerfile')
 	doFirst {
 		copy {
 			from jar
