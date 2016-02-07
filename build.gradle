@@ -76,6 +76,6 @@ task wrapper(type: Wrapper) {
 }
 docker {
 	maintainer = 'Aranga Nanayakkara<aranga.'
-	baseImage = 'aranga/docker-boot:1.0'
+	baseImage = 'aranga/spring-boot:1.0'
 
 }
