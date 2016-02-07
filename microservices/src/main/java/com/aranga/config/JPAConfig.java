@@ -31,7 +31,10 @@ public class JPAConfig
     @Autowired
     private Environment environment;
 
-
+    public JPAConfig()
+    {
+        LOG.info("JPA Configuration loaded!");
+    }
 
     @Bean(name = "coreEntityManager")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory()
