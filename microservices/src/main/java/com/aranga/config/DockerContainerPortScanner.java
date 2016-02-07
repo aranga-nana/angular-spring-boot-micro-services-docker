@@ -29,7 +29,7 @@ public class DockerContainerPortScanner implements ApplicationListener<Applicati
 
         for(String s :event.getEnvironment().getSystemEnvironment().keySet())
         {
-            LOG.info(s);
+            LOG.info(s+":"+event.getEnvironment().getSystemEnvironment().get(s));
         }
 
     }

@@ -20,7 +20,7 @@ public class MicroserviceApplication implements ApplicationRunner
     @Override
     public void run(ApplicationArguments args) throws Exception
     {
-        System.out.println(args);
+        System.out.println(args.getSourceArgs());
     }
 
     public static void main(String[] args) throws Exception
