@@ -38,8 +38,8 @@ sourceSets{
 	}	
 }
 jar {
-	baseName = 'app'
-	version =  '0.0.0'
+	baseName = 'spring-boot'
+	version =  '1.0.0'
 }
 
 
@@ -74,8 +74,15 @@ dependencies {
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.6'
 }
-docker {
-	maintainer = 'Aranga Nanayakkara<aranga@gmail.com>'
-	applicationName = 'spring-boot'
-	tagVersion = '1'
+task buildDocker(type: Docker, dependsOn: build) {
+	push = true
+	applicationName = jar.baseName
+	tagVersion = 1
+	dockerfile = file('src/main/docker/Dockerfile')
+	doFirst {
+		copy {
+			from jar
+			into stageDir
+		}
+	}
 }
