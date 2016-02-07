@@ -12,6 +12,57 @@ I know there are so many sample out there in the web but none of them have compl
 In coming months will work on each topic and let you guys know. if you are interested in drop me an email.
 always looking forward for your suggestions and comment. 
 
+## How to build the sample
+
+#######jar
+NOTE: please give execution permission to gradlew
+```
+chmod +x ./gradlew
+```
+build jar file
+```
+./gradlew build
+```
+#######docker container image
+```
+./gradlew buildDocker
+```
+make sure you have docker account if you want to push it,otherwise change the push flag to false
+```
+task buildDocker(type: Docker, dependsOn: build) {
+	push = true //false - stop pushing to reformatory
+	applicationName = jar.baseName
+	tagVersion = jarTagName
+	dockerfile = file('microservices/src/main/docker/Dockerfile')
+	doFirst {
+
+		copy {
+			from jar
+			into stageDir
+		}
+	}
+}
+
+
+```
+
+######-DTAG flag
+can be use to pass the parameters when building using something like jenkins
+
+##### build container and run !
+NOTE: need to have docker running and executing user has to be root or part of the docker group
+
+
+```
+./gradlew -DTAG=1.0 buildDocker
+```
+```
+docker run -p 8080:80 aranga/spring-boot:1.0 -it
+```
+
+http://docker-host:8080/greeting/
+
+# Code sample explanations !!!
 
 ##Loggers
 Spring boot use LogBack (self4j implementation) as logging framework which is far superior than log4j
