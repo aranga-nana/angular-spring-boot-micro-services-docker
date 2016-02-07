@@ -18,7 +18,10 @@ apply plugin: 'java'
 apply plugin: 'spring-boot'
 apply plugin: 'application'
 apply plugin: 'docker'
-group = 'aranga'
+group = 'aranga' //need to change to your docker account or group
+
+
+
 sourceSets{
 	main{
 		java{
@@ -39,7 +42,12 @@ sourceSets{
 }
 jar {
 	baseName = 'spring-boot'
-	version =  '1.0.0'
+	version =  ${tagv}
+	doFirst{
+		tagv = java.lang.System.getProperty("TAG");
+		if (tagv == null)
+			tagv ="1.0.0"
+	}
 }
 
 
