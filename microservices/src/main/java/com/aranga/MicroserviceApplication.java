@@ -1,6 +1,6 @@
 package com.aranga;
 
-import com.aranga.config.DockerContainerPortScanner;
+
 import com.aranga.config.InspectLogPathListener;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -29,7 +29,7 @@ public class MicroserviceApplication implements ApplicationRunner
 
         final SpringApplication app = new SpringApplication(MicroserviceApplication.class);
         app.addListeners(new InspectLogPathListener());
-        app.addListeners(new DockerContainerPortScanner());
+
         app.run(args);
 
     }
