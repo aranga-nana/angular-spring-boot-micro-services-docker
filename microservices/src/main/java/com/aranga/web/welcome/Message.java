@@ -1,4 +1,4 @@
-package com.aranga.welcome;
+package com.aranga.web.welcome;
 
 import org.springframework.core.env.Environment;
 

@@ -1,4 +1,5 @@
-package com.aranga.welcome;
+package com.aranga.web.welcome;
+
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

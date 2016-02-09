@@ -1,4 +1,4 @@
-package com.aranga.web;
+package com.aranga.web.user;
 
 import com.aranga.domain.User;
 import com.aranga.services.UserService;
