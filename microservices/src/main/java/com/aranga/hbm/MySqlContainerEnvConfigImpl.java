@@ -16,6 +16,8 @@ public class MySqlContainerEnvConfigImpl implements AppConfig
         System.out.println("MySqlContainerEnvConfigImpl()");
     }
 
+    @Value("${mysql.env.mysql.root.password}")
+    private String password;
     @Value("${mysql.port.3306.tcp.addr}")
     private String host;
     @Override
@@ -42,18 +44,23 @@ public class MySqlContainerEnvConfigImpl implements AppConfig
     @Override
     public String isShowSql()
     {
-        return null;
+        return "true";
     }
 
     @Override
     public String getUserName()
     {
-        return null;
+        return "root";
     }
 
     @Override
     public String getPassword()
     {
-        return null;
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 }
