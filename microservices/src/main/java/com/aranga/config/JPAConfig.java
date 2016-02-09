@@ -27,7 +27,7 @@ public class JPAConfig
 {
     private static final Logger LOG = Logger.getLogger(JPAConfig.class);
 
-    @Autowired(required = false)
+    @Autowired
     private DataSourceDriver driver;
 
     @Autowired
@@ -42,7 +42,7 @@ public class JPAConfig
     public LocalContainerEntityManagerFactoryBean entityManagerFactory()
     {
         if (driver == null){
-            throw new IllegalStateException("cannot find db.type property with valid value ( myql,ms-sql)");
+            throw new IllegalStateException("cannot find db.type property with valid value ( mysql,ms-sql)");
         }
         driver.create();
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();

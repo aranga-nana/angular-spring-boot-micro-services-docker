@@ -1,6 +1,7 @@
 package com.aranga.hbm;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -10,8 +11,9 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Configuration
 @ComponentScan(basePackages = { "com.*" })
-@PropertySource("classpath:config.properties")
-public class AppConfigProperyImpl implements AppConfig
+@PropertySource(value = {"classpath:/config.properties","file:${home_dir}/config.properties"},ignoreResourceNotFound = true)
+@ConditionalOnMissingBean(MySqlContainerEnvConfigImpl.class)
+public class DefaultConfigProperyImpl implements AppConfig
 {
 
     @Value("${db.username:root}")
@@ -22,14 +24,22 @@ public class AppConfigProperyImpl implements AppConfig
     @Value("${db.port:3306}")
     private int port;
 
-    @Value("${db.host:localhost}")
-    private String dbname;
     @Value("${db.name:Test}")
+    private String dbname;
+
+    @Value("${db.host:localhost}")
     private String host;
 
 
     @Value("${db.showSql:false}")
     private String showSql;
+
+    public DefaultConfigProperyImpl()
+    {
+        System.out.println("DefaultConfigProperyImpl()");
+    }
+
+
     @Override
     public int getPort()
     {
