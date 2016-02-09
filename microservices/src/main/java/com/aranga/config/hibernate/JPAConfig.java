@@ -1,6 +1,7 @@
 package com.aranga.config.hibernate;
 
 import com.aranga.config.hibernate.drivers.DataSourceDriver;
+import com.aranga.config.hibernate.env.AppConfig;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
