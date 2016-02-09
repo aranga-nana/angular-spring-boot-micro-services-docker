@@ -52,6 +52,7 @@ public class UserServiceImp implements UserService
             return rep.selectAll();
         }catch (Throwable e)
         {
+            e.printStackTrace();
             LOG.error(e);
         }
         return null;

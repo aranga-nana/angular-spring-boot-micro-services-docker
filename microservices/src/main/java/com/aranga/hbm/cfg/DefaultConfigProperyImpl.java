@@ -1,4 +1,4 @@
-package com.aranga.hbm;
+package com.aranga.hbm.cfg;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

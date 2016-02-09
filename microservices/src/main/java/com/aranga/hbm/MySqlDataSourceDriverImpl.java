@@ -1,11 +1,11 @@
 package com.aranga.hbm;
 
+import com.aranga.hbm.cfg.AppConfig;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
 
