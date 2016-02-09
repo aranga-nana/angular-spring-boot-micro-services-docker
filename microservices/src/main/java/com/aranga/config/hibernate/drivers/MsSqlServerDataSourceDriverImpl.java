@@ -1,4 +1,4 @@
-package com.aranga.hbm;
+package com.aranga.config.hibernate.drivers;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;

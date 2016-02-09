@@ -1,7 +1,7 @@
 package com.aranga;
 
 
-import com.aranga.config.InspectLogPathListener;
+import com.aranga.config.app.core.listners.InspectLogPathListener;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-package com.aranga.config;
+package com.aranga.config.app;
 
 /**
  * Created by Aranga on 7/02/2016.

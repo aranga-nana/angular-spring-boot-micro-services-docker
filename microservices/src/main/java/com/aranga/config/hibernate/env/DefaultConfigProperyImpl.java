@@ -1,4 +1,4 @@
-package com.aranga.hbm.cfg;
+package com.aranga.config.hibernate.env;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

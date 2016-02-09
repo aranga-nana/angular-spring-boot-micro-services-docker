@@ -1,4 +1,4 @@
-package com.aranga.config;
+package com.aranga.config.app.listeners;
 
 
 import org.springframework.boot.context.event.ApplicationStartedEvent;

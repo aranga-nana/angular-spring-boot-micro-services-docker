@@ -1,6 +1,6 @@
-package com.aranga.hbm;
+package com.aranga.config.hibernate.drivers;
 
-import com.aranga.hbm.cfg.AppConfig;
+import com.aranga.config.hibernate.AppConfig;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

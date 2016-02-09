@@ -1,4 +1,4 @@
-package com.aranga.config;
+package com.aranga.config.app;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

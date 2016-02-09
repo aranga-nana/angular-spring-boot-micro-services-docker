@@ -1,4 +1,4 @@
-package com.aranga.hbm;
+package com.aranga.config.hibernate.drivers;
 
 import javax.sql.DataSource;
 

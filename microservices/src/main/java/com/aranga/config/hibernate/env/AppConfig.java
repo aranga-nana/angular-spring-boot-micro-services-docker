@@ -1,4 +1,4 @@
-package com.aranga.hbm.cfg;
+package com.aranga.config.hibernate.env;
 
 /**
  * Created by Aranga on 8/02/2016.
