@@ -5,6 +5,8 @@ import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
 
 /**
+ * Set log dir property. this is the only event which fires befor
+ * logger been initialise
  * Created by Aranga on 6/02/2016.
  */
 public class InspectLogPathListener implements ApplicationListener<ApplicationStartedEvent>
@@ -13,6 +15,7 @@ public class InspectLogPathListener implements ApplicationListener<ApplicationSt
     @Override
     public void onApplicationEvent(ApplicationStartedEvent event)
     {
+
 
 
         System.setProperty("SQL_LOG_LEVEL","INFO");
