@@ -1,6 +1,5 @@
 package com.aranga.hbm.cfg;
 
-import com.aranga.hbm.cfg.AppConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
@@ -21,10 +20,18 @@ public class MySqlContainerEnvConfigImpl implements AppConfig
     private String password;
     @Value("${mysql.port.3306.tcp.addr}")
     private String host;
+    @Value("${mysql.port.3306.tcp.port:3306}")
+    private int port;
+
     @Override
     public int getPort()
     {
-        return 3303;
+        return port;
+    }
+
+    public void setPort(int port)
+    {
+        this.port = port;
     }
 
     @Override
