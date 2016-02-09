@@ -27,10 +27,10 @@ public class JPAConfig
 {
     private static final Logger LOG = Logger.getLogger(JPAConfig.class);
 
-    @Autowired
+    @Autowired(required = false)
     private DataSourceDriver driver;
 
-    @Autowired
+    @Autowired(required = false)
     private AppConfig dbconfig;
 
     public JPAConfig()
