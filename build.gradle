@@ -83,18 +83,8 @@ dependencies {
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.6'
 }
-task distDocker {
-
-}
-
-task replaseVerion{
 
 
-}
-task replaceVersion{
-	a =getAnt();
-
-}
 task buildDocker(type: Docker, dependsOn: build) {
 	push = true
 	applicationName = jar.baseName
