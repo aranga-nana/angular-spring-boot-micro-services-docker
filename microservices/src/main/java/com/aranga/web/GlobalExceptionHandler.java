@@ -24,12 +24,14 @@ import java.util.Map;
 public class GlobalExceptionHandler
 {
     @ResponseBody
-    @ResponseStatus(value = HttpStatus.SERVICE_UNAVAILABLE,reason = "critical error with database connection/structure")
+    @ResponseStatus(value = HttpStatus.SERVICE_UNAVAILABLE)
     @ExceptionHandler({ SQLException.class, DataAccessException.class, DataAccessResourceFailureException.class, JDBCConnectionException.class})
     public Map<String,Object> dbError(Exception exception,HttpServletResponse response,HttpServletRequest request) throws IOException
     {
         Map<String,Object> m = new HashMap<>();
-        m.put("id",Long.valueOf(12212));
+
+        m.put("errorId",Long.valueOf(201));
+        m.put("state",HttpStatus.SERVICE_UNAVAILABLE.value());
         m.put("url", request.getRequestURL().toString());
         m.put("message", exception.getMessage());
         m.put("devMessage", "db server connection error");
