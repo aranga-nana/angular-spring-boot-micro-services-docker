@@ -1,7 +1,6 @@
 package com.aranga;
 
 
-
 import com.aranga.config.app.listeners.InspectLogPathListener;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -10,14 +9,17 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Created by nanara0 on 3/02/2016.
  */
+@ComponentScan
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class}) // DataSourceTransactionManagerAutoConfiguration.class
 public class MicroserviceApplication implements ApplicationRunner
 {
+
     @Override
     public void run(ApplicationArguments args) throws Exception
     {

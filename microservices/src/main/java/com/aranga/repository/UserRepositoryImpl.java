@@ -45,8 +45,11 @@ public class UserRepositoryImpl implements UserRepository
     @Override
     public List<User> selectAll()
     {
-        final List<User> list = em.createNamedQuery("User.selectAll", User.class).getResultList();
 
-        return list;
+          final List<User> list = em.createNamedQuery("User.selectAll", User.class).getResultList();
+          return list;
+
+
+
     }
 }

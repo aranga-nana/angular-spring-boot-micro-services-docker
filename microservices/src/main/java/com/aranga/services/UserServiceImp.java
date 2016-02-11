@@ -47,15 +47,9 @@ public class UserServiceImp implements UserService
     @Override
     public List<User> getAll()
     {
-        try
-        {
-            return rep.selectAll();
-        }catch (Throwable e)
-        {
-            e.printStackTrace();
-            LOG.error(e);
-        }
-        return null;
+        final List<User> list = rep.selectAll();
+
+        return list;
 
     }
 }

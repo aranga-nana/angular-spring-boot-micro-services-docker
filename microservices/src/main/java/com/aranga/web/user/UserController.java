@@ -4,6 +4,7 @@ import com.aranga.domain.User;
 import com.aranga.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,16 +19,11 @@ public class UserController
 {
     @Autowired
     private UserService service;
-    @RequestMapping("/")
+    @RequestMapping(value = "/",method = RequestMethod.GET,produces = "application/json")
     public List<User> get()
     {
-        try
-        {
             return service.getAll();
-        }catch (Throwable e)
-        {
-            throw new IllegalStateException(e);
-        }
+
 
 
     }
