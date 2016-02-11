@@ -1,4 +1,3 @@
-import org.apache.tools.ant.filters.ReplaceTokens;
 buildscript {
 	ext {
 		springBootVersion = '1.3.2.RELEASE'
@@ -97,7 +96,7 @@ task buildDocker(type: Docker, dependsOn: build) {
 			from jar
 			into stageDir
 		}
-		def updatedContent = new File(stageDir+'/Dockerfile').getText('UTF-8').replaceAll('@version', jarTagName)
+		def updatedContent = new File(stageDir+'/Dockerfile').getText('UTF-8') //.replaceAll('@version', jarTagName)
 		println(updatedContent);
 
 	}
