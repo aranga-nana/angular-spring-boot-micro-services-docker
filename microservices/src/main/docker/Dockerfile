@@ -1,4 +1,5 @@
 FROM java:8
+ENV SPRING_BOOT_VER @version@
 VOLUME /tmp
 VOLUME /var/log/spring-boot
 VOLUME /data
