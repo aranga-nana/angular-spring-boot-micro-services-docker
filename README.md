@@ -3,6 +3,7 @@ sample application to display of working of spring-boot as micro-service and dep
 sample will make use of following:
 - JPA Configuration
 - Overriding Spring boot web initialisation
+- using spring auto configuration annotation
 - Angular base client app (using material design)
 - Implementation  of token base Authentication and authorisation
 - AWS Deployment as docker container.
