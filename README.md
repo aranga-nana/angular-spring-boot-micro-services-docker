@@ -133,6 +133,7 @@ dependencies{
  ...
  compile("com.microsoft.sql:sqljdbc:4.0.0")
 }
+```
 
 ####Auto Configuration
 ######Use Case 1
@@ -150,7 +151,7 @@ public class MySqlDataSourceDriverImpl implements DataSourceDriver
     ...
 }
 
-````
+```
 In above case spring framework inject  instance of
 MySqlDataSourceDriverImpl.class if the db.type property is
 is mysql. please not the application.property will have value defien incase
