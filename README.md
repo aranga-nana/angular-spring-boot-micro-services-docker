@@ -1,3 +1,8 @@
+<!-- 
+
+Angular 1.4 , spring framework ,spring boot,autorconfigurtaion
+-->
+
 # angular-spring-boot-micro-services-docker
 sample application to display of working of spring-boot as micro-service and deployes as docker container to the cloud provider (AWS and Azur).
 sample will make use of following:
