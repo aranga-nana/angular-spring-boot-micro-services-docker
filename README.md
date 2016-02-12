@@ -132,3 +132,69 @@ dependencies{
  ...
  compile("com.microsoft.sql:sqljdbc:4.0.0")
 }
+
+####Auto Configuration
+######Use Case 1
+Instead of passing whole connection string to the data source we can make use
+of the auto configuration annotation. To create correct type of instance in this
+project make use of @CondtionOnProperty annotation
+
+```
+
+@Configuration
+@ConditionalOnProperty(name = "db.type", havingValue = "mysql")
+public class MySqlDataSourceDriverImpl implements DataSourceDriver
+{
+    ..
+    ...
+}
+
+````
+In above case spring framework inject  instance of
+MySqlDataSourceDriverImpl.class if the db.type property is
+is mysql. please not the application.property will have value defien incase
+there's no environment variable or VM variable not defined.
+
+
+######Use case 2
+Use auto configuration to load correct database parameter to when
+creating Data Source.
+
+In this case we use two different annotation.
+@ConditionalOnMissingBean which act as out default configuration
+i.e properties get initalise through VM/ENV variable.
+
+and
+@ConditionalOnProperty
+if there's no environment variable call 'mysql.env.mysql.version' , the
+this class not get initialise, in that case MySqlContainerEnvConfigImpl
+bean will be missing and this will cause DefaultConfigProperyImpl to get instantiate because
+of @ConditionalOnMissingBean annotation
+
+```
+@Configuration
+@ComponentScan(basePackages = { "com.*" })
+@PropertySource(value = {"classpath:/config.properties","file:${home_dir}/config.properties"},ignoreResourceNotFound = true)
+@ConditionalOnMissingBean(MySqlContainerEnvConfigImpl.class)
+public class DefaultConfigProperyImpl implements AppConfig
+{
+   ....
+    ....
+}
+
+@ConditionalOnProperty(name = "mysql.env.mysql.version")
+public class MySqlContainerEnvConfigImpl implements AppConfig
+{
+    ...
+}
+
+please note  that mysql prefix in the property is coming form link name give at the time of docker run
+
+docker run --name spring-boot --link mysql:mysql -d aranga/spring-boot:1.2
+
+```
+
+
+
+
+
