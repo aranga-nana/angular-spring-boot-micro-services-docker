@@ -290,6 +290,8 @@ docker run --name my-spring-boot-app --link mysql:mysql -d -p 80:8080 aranga/spr
 without single configuration our spring boot can auto matically connected to and container name mysql running docker mysql image.
 NOTE:depending on the image environment variable name may chanege. so please change them accordingly 
 
+#### I dont recomand runing db service in container. Rather use Amazon RDS or Azure SQL Services.how ever its fine with dev environment.
+
 
 
 
