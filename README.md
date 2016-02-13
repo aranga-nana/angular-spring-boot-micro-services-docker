@@ -194,12 +194,130 @@ public class MySqlContainerEnvConfigImpl implements AppConfig
 {
     ...
 }
+```
 
-please note  that mysql prefix in the property is coming form link name give at the time of docker run
+#######Basic Docker 
+Lets learn bit about docker befor we run spring boot and mysql  to show how above auto configuration works,lets run linking container understands the internals
 
-docker run --name spring-boot --link mysql:mysql -d aranga/spring-boot:1.2
+running mysql docker container
 
 ```
+$ docker run --name mysql  -v /data/mysql:/var/lib/mysql/ -e MYSQL_ROOT_PASSWORD=password -d mysql
+```
+above statement will create mysql container called mysql and my docker-host's data/mysql to container's /var/lib/mysql
+-v ensure after container been removed the user data is persisted.
+
+#### How link in docker containers work
+To experiment on it I have docker container created with mysql client in it. Lets run that container to shoow how 
+docker --link works
+
+```
+$ docker pull aranga/mysql 
+```
+this will pull ubuntu image with the mysql client pre-installed in it.
+lets run it wit intractive terminal (make sure mysql is running as per above command).
+```
+$docker run --link mysql:mysql -it aranga/mysql /bin/bash
+```
+above line tells docker to powert up aranga/mysql image and run bash in interactive mode. it will presents with
+the bash prompt. --link will tell aranga/mysql container to add link to mysql container which represent by mysql
+once you @ the bash prompt of aranga/my sql. run following command
+
+```
+$ printenv
+```
+you will presents with somthing like this
+
+```
+HOSTNAME=f9230acd7f12
+MYSQL_ENV_MYSQL_ROOT_PASSWORD=password
+TERM=xterm
+MYSQL_VERSION=5.7.10-1debian8
+MYSQL_PORT_3306_TCP_PORT=3306
+MYSQL_PORT_3306_TCP=tcp://172.17.0.2:3306
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/
+MYSQL_ENV_MYSQL_VERSION=5.7.10-1debian8
+HOME=/root
+SHLVL=1
+MYSQL_PORT_3306_TCP_PROTO=tcp
+MYSQL_NAME=/ecstatic_goldstine/mysql
+MYSQL_MAJOR=5.7
+MYSQL_PORT_3306_TCP_ADDR=172.17.0.2
+MYSQL_ENV_MYSQL_MAJOR=5.7
+MYSQL_PORT=tcp://172.17.0.2:3306
+
+```
+those are the environment variables exposed by mysql container
+Back to our spring-boot and conditonal loading.
+particualrly we are interested in following variables
+```
+MYSQL_ENV_MYSQL_ROOT_PASSWORD=password
+MYSQL_PORT_3306_TCP_PORT=3306
+MYSQL_ENV_MYSQL_VERSION=5.7.10-1debian8
+MYSQL_PORT_3306_TCP_ADDR=172.17.0.2
+```
+back to our Auto config class
+```
+
+@Configuration
+@ConditionalOnProperty(name = "mysql.env.mysql.version")
+public class MySqlContainerEnvConfigImpl implements AppConfig
+{
+    @Value("${mysql.env.mysql.root.password}")
+    private String password;
+    @Value("${mysql.port.3306.tcp.addr:localhost}")
+    private String host;
+    @Value("${mysql.port.3306.tcp.port:3306}")
+    private int port;
+ 
+    ....
+    .....
+}
+
+```
+enviorimnet variable MYSQL_ENV_MYSQL_VERSION will maks spering framework to instantiating   'MySqlContainerEnvConfigImpl'
+and use the other environment varibale to set the password,host,and port.
+lets run our spring-boot container !. this is already build and availbe from my repository
+```
+docker run --name my-spring-boot-app --link mysql:mysql -d -p 80:8080 aranga/spring-boot:1.2.2 
+```
+without single configuration our spring boot can auto matically connected to and container name mysql running docker mysql image.
+NOTE:depending on the image environment variable name may chanege. so please change them accordingly 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
